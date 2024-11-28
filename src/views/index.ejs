@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body >
+    <h1>Welcome to Role Based Access Control Application</h1>
+    <ol>
+        <h2>Features/Functionalities:</h2>
+        <li>Register</li>
+        <li>Login</li>
+
+        <li>Authorization based on roles like Admin,User,Manager</li>
+
+    </ol>
+    <h2>To check these Features use Postman</h2>
+    <br><br>
+    <ol>
+     <li><h3>Register User</h3></li>
+     <p>
+        post request <br>
+        http://localhost:3200/api/auth/register <br>
+        attached data in body in json format <br>
+        body==> json <br>
+         { <br>
+            "username":"Humera", <br>
+            "password":"1234",  <br>
+            "role":"admin" or "admin" or "user" <br>
+            } <br>
+            <br>
+            response of register user <br>
+            { <br>
+                "message": "User registered with username Humera1" <br>
+                
+            } <br>
+        
+     </p>
+
+     <li><h3>Login User</h3></li>
+     <p>
+        post request <br>
+        http://localhost:3200/api/auth/login  <br>
+        attached data in body in json format <br>
+        body==> json <br>
+         { <br>
+            "username":"Humera", <br>
+            "password":"1234",  <br>
+            } <br>
+            <br>
+            response of register user <br>
+            { <br>
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NDgwMmViOTVhN2I2YmMwYmU3ZDQ0ZSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTczMjc3MjgyMCwiZXhwIjoxNzMyNzc2NDIwfQ.jinVmFKutQt0IUReADL2miRX42fUkmZBVMpPGGtxHns" <br>
+                
+            } <br>
+            copy token and keep it safe for rbac <br> <br>
+        
+     </p>
+
+
+    </ol>
+
+  
+    <h2>RBAC</h2>
+    <h3>All are GET request</h3>
+    <h3>Authorization access As a admin</h3>
+  <ol>
+    <li><h3>1. if user role is admin 
+        the routes  can access </h3></li> <br>
+            <h4> http://localhost:3200/api/user/admin </h4>
+            <h4> http://localhost:3200/api/user/manager </h4>
+            <h4>http://localhost:3200/api/user/user</h4> <br>
+            
+            <p> Add Authorization in Header for rbac</p> <br>
+            <p> Authorization : Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NDgwMmViOTVhN2I2YmMwYmU3ZDQ0ZSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTczMjc3MjgyMCwiZXhwIjoxNzMyNzc2NDIwfQ.jinVmFKutQt0IUReADL2miRX42fUkmZBVMpPGGtxHns </p> <br>
+            <h3>response of this request is</h3>
+            { <br>
+                "message": "Welcome Admin" <br>
+            } <br>
+
+  </ol>
+
+  <h3>Authorization access As a manager</h3>
+  <ol>
+    <li><h3>1. if user role is manager 
+        the routes  can access </h3></li> <br>
+            <h4> http://localhost:3200/api/user/manager </h4>
+            <h4>http://localhost:3200/api/user/user</h4> <br>
+            
+            <p> Add Authorization in Header for rbac</p> <br>
+            <p> Authorization : Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NDgwMmViOTVhN2I2YmMwYmU3ZDQ0ZSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTczMjc3MjgyMCwiZXhwIjoxNzMyNzc2NDIwfQ.jinVmFKutQt0IUReADL2miRX42fUkmZBVMpPGGtxHns </p> <br>
+            <h3>response of this request is</h3>
+            { <br>
+                "message": "Welcome Manager" <br>
+            } <br>
+            
+  </ol>
+
+  <h3>Authorization access As a user</h3>
+  <ol>
+    <li><h3>1. if user role is user 
+        the routes  can access </h3></li> <br>
+         
+            <h4>http://localhost:3200/api/user/user</h4> <br>
+            
+            <p> Add Authorization in Header for rbac</p> <br>
+            <p> Authorization : Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NDgwMmViOTVhN2I2YmMwYmU3ZDQ0ZSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTczMjc3MjgyMCwiZXhwIjoxNzMyNzc2NDIwfQ.jinVmFKutQt0IUReADL2miRX42fUkmZBVMpPGGtxHns </p> <br>
+            <h3>response of this request is</h3>
+            { <br>
+                "message": "Welcome user" <br>
+            } <br>
+            
+  </ol>
+
+
+
+
+</body>
+</html>
