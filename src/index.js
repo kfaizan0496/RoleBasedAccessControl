@@ -17,7 +17,9 @@ app.use(express.json())
 
 app.use('/api/auth',authRouter)
 app.use('/api/user',userRouter)
-
+app.get('/',(req,res)=>{
+    res.send('<h1>Welcome to Role Based Access Control Application</h1>')
+})
 
 const Port=process.env.PORT || 3000;
 
