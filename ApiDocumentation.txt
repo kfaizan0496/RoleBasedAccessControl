@@ -1,3 +1,13 @@
+Functionalities
+1.Register
+2.Login
+3.Authorization based on roles like Admin,User,Manager
+
+
+To check these feature use Postman
+
+
+
 1.Register User
  post request
   http://localhost:3200/api/auth/register
@@ -44,7 +54,7 @@ RBAC
 
 All are GET request
 
-Login As a admin
+Authorization access As a admin
 1. if user role is admin 
   the routes  can access 
 
@@ -63,7 +73,7 @@ response of this request is
 }
 
 
-Login As a manager
+Authorization access  As a manager
 
 2. if user role is manager 
   the routes  can access 
@@ -83,7 +93,7 @@ Add Authorization in Header for rbac
 
 
 
-Login As a user
+Authorization access As a user
 3. if user role is user 
   the routes  can access 
   http://localhost:3200/api/user/user 
